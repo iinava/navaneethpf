@@ -1,41 +1,35 @@
 import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Navaneeth",
+  lastName: "B",
+  displayName: "Navaneeth B",
+  username: "iinava",
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Full-stack Software Engineer building scalable web applications.",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer.",
+    "Full-stack Software Engineer building scalable web applications.",
+    "Software Engineer.",
+    "Next.js, FastAPI, PostgreSQL.",
     "Open source contributor.",
-    "I own a vintage iPhone.",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumberB64: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  emailB64: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "India",
+  phoneNumberB64: "KzkxNzAyNTAzMjQ1OQ==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
+  emailB64: "Ym5hdmFuZWV0aDIxQGdtYWlsLmNvbQ==", // base64 encoded
+  website: "https://github.com/iinava",
+  jobTitle: "Software Engineer",
   jobs: [
     {
-      title: "Design Engineer",
-      company: "shadcncraft",
-      website: "https://shadcncraft.com?atp=ncdai",
-      experienceId: "shadcncraft",
-    },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
+      title: "Software Engineer",
+      company: "Nexeor Creative Ltd",
+      website: "https://nexeor.com",
+      experienceId: "nexeor",
     },
   ],
-  about: `- I’m Chánh Đại (call me Dai) — a Design Engineer with 5+ years of experience, known for pixel-perfect execution and an obsessive attention to detail.
-- Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted projects.
-- Creator of [chanhdai.com](https://github.com/ncdai/chanhdai.com) (2k stars), [React Wheel Picker](https://react-wheel-picker.chanhdai.com) (50k+ weekly downloads, ▲Vercel OSS Program), and [ZaDark](https://zadark.com) (80k+ downloads, 30k+ users) — peak metrics.
+  about: `- I’m Navaneeth — a full-stack Software Engineer with experience building scalable web applications using Next.js, TanStack, FastAPI, and PostgreSQL.
+- Experienced in system design and third-party API integrations, from payment processing to courier management.
+- Currently a Software Engineer at [Nexeor Creative Ltd](https://nexeor.com), building SEO-friendly business websites, CRM dashboards, and multi-tenant e-commerce platforms.
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
   avatarVariants: {
@@ -47,18 +41,15 @@ export const USER: User = {
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
   namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
-  timeZone: "Asia/Ho_Chi_Minh",
+  timeZone: "Asia/Kolkata",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "navaneeth",
+    "navaneeth b",
+    "iinava",
+    "nexeor",
+    "nexeor creative",
+    "full-stack developer",
+    "software engineer",
   ],
   dateCreated: "2023-10-20", // YYYY-MM-DD
 }

@@ -14,14 +14,14 @@ export const SOCIAL = {
   },
   github: {
     title: "GitHub",
-    handle: "ncdai",
-    href: "https://github.com/ncdai",
+    handle: "iinava",
+    href: "https://github.com/iinava",
     sameAs: true,
   },
   linkedin: {
     title: "LinkedIn",
-    handle: "ncdai",
-    href: "https://linkedin.com/in/ncdai",
+    handle: "inavaneeth",
+    href: "https://linkedin.com/in/inavaneeth",
     sameAs: true,
   },
   dailydotdev: {
