@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils"
 import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
+import { USER } from "@/features/portfolio/data/user"
 
 export function SiteFooter() {
   const xLink = SOCIAL.x
@@ -158,7 +159,7 @@ export function SiteFooter() {
         </div> */}
       </div>
 
-      <SiteFooterInteractiveLogotype />
+      <SiteFooterInteractiveLogotype name={USER.displayName} />
 
       <div className="h-(--fade-bottom-height)" />
       <div className="pb-[env(safe-area-inset-bottom,0)]" />

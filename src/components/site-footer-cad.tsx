@@ -8,13 +8,14 @@ import { Separator } from "@/components/base/ui/separator"
 import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
+import { USER } from "@/features/portfolio/data/user"
 
 // Imported here rather than through `@/config/site`, which client components
 // pull in, to keep the manifest out of client bundles.
 import packageJson from "../../package.json"
 // Precomputed by `pnpm registry:build`, so the count costs no registry import.
 import registryStats from "../../registry-stats.json"
-import { ChanhDaiMark } from "./chanhdai-mark"
+import { NMark } from "./n-mark"
 
 const INSPIRED_BY = [
   "Tailwind CSS",
@@ -159,7 +160,7 @@ export function SiteFooterCad() {
 
         <div className="screen-line-top screen-line-bottom flex items-center gap-3 px-4 py-3 text-muted-foreground">
           <Link href="/" className="mr-auto text-foreground">
-            <ChanhDaiMark className="h-4" />
+            <NMark className="h-4" />
           </Link>
 
           <a
@@ -222,7 +223,7 @@ export function SiteFooterCad() {
         </div>
       </div>
 
-      <SiteFooterInteractiveLogotype />
+      <SiteFooterInteractiveLogotype name={USER.displayName} />
 
       <div className="h-(--fade-bottom-height)" />
       <div className="pb-[env(safe-area-inset-bottom,0)]" />
