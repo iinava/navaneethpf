@@ -161,9 +161,9 @@ export function SpotlightLogo() {
       </defs>
 
       <g className="stroke-line" strokeWidth="1" strokeDasharray="4 2">
-        <path d="M-380 620L1000 -200" />
-        <path d="M780 645L-600 -175" />
-        <path d="M913 568L-467 -252" />
+        <path d="M-500 -416.46L1000 449.56" />
+        <path d="M-500 417.46L1000 -448.56" />
+        <path d="M-500 705.46L1000 -160.56" />
       </g>
 
       <path d={SKIRT} className="fill-background" />
