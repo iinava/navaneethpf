@@ -7,8 +7,7 @@ export const EXPERIENCES: Experience[] = [
     id: "nexeor",
     companyName: "Nexeor Creative Ltd",
     companyWebsite: "https://nexeor.com/?utm_source=iinava",
-    location: "UAE",
-    locationType: "Remote",
+    location: "UAE (Remote) / Kochi (Office)",
     positions: [
       {
         id: "1",

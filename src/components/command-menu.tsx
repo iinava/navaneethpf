@@ -10,7 +10,6 @@ import {
   BriefcaseBusinessIcon,
   CircleCheckBigIcon,
   CornerDownLeftIcon,
-  CrownIcon,
   DownloadIcon,
   FileTextIcon,
   GraduationCapIcon,
@@ -18,7 +17,6 @@ import {
   LineChartIcon,
   MonitorIcon,
   MoonStarIcon,
-  QuoteIcon,
   RssIcon,
   SunMediumIcon,
   TextInitialIcon,
@@ -103,20 +101,6 @@ const MENU_LINKS: CommandLinkItem[] = [
     icon: <NewsIcon />,
     shortcut: "GL",
   },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
-    kind: "page",
-    icon: <FavouriteIcon />,
-    shortcut: "GS",
-  },
-  {
-    title: "Testimonials",
-    href: "/testimonials",
-    kind: "page",
-    icon: <QuoteIcon strokeWidth={1.5} />,
-    shortcut: "GT",
-  },
 ]
 
 const PORTFOLIO_LINKS: CommandLinkItem[] = [
@@ -149,18 +133,6 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     href: "/#projects",
     kind: "page",
     icon: <BoxIcon />,
-  },
-  {
-    title: "Awards",
-    href: "/#awards",
-    kind: "page",
-    icon: <CrownIcon />,
-  },
-  {
-    title: "Certifications",
-    href: "/#certs",
-    kind: "page",
-    icon: <CircleCheckBigIcon />,
   },
   {
     title: "Bookmarks",

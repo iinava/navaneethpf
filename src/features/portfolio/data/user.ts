@@ -40,8 +40,7 @@ export const USER: User = {
     darkOn: "https://assets.chanhdai.com/images/avatar-dark-on.webp",
   },
   ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?t=1778602757",
-  namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
+    "/og/simple?title=Navaneeth%20B&description=Software%20Engineer%20building%20scalable%20web%20applications.",
   timeZone: "Asia/Kolkata",
   keywords: [
     "navaneeth",

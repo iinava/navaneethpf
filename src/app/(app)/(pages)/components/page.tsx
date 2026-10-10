@@ -1,7 +1,7 @@
 import type { Metadata, Route } from "next"
 import Link from "next/link"
 import { addQueryParams } from "@/utils/url"
-import { Grip, LayoutDashboard } from "lucide-react"
+import { Grip } from "lucide-react"
 import type { CollectionPage, WithContext } from "schema-dts"
 
 import { JSON_LD_ID } from "@/config/json-ld"
@@ -98,6 +98,7 @@ export default function Page() {
         sensitivity: "base",
       })
     )
+    .slice(0, 1)
 
   const newComponents = allComponents.filter((c) => c.metadata.new)
 
@@ -179,7 +180,7 @@ export default function Page() {
 
         <div className="flex items-center gap-1.5 p-1.5 pl-4">
           <h2 className="flex-1 text-sm font-medium text-muted-foreground">
-            {allComponents.length} components
+            1 component
           </h2>
 
           <Tooltip>
@@ -197,26 +198,6 @@ export default function Page() {
             />
             <TooltipContent>
               <p>List</p>
-            </TooltipContent>
-          </Tooltip>
-
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <Button
-                  className="size-7 border-none text-muted-foreground"
-                  variant="ghost"
-                  size="icon-sm"
-                  nativeButton={false}
-                  render={<Link href="/components/showcase" />}
-                  aria-label="Showcase"
-                >
-                  <LayoutDashboard />
-                </Button>
-              }
-            />
-            <TooltipContent>
-              <p>Showcase</p>
             </TooltipContent>
           </Tooltip>
         </div>

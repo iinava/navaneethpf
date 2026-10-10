@@ -48,13 +48,17 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
             )}
           </h3>
 
-          {experience.location && experience.locationType && (
+          {experience.location && (
             <dl className="flex min-w-0 items-center gap-1.5 text-sm whitespace-nowrap text-muted-foreground">
               <dt className="sr-only">Location</dt>
               <dd className="truncate">{experience.location}</dd>
 
-              <dt className="sr-only">Location type</dt>
-              <dd>({experience.locationType})</dd>
+              {experience.locationType && (
+                <>
+                  <dt className="sr-only">Location type</dt>
+                  <dd>({experience.locationType})</dd>
+                </>
+              )}
 
               {experience.isCurrentEmployer && (
                 <>

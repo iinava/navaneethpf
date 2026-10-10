@@ -7,8 +7,8 @@ import {
 } from "@/registry/transformed/components/github-contributions"
 import { getCachedContributions } from "@/registry/transformed/components/github-contributions/lib/get-cached-contributions"
 
-const GITHUB_USERNAME = "ncdai"
-const GITHUB_PROFILE_URL = "https://github.com/ncdai"
+const GITHUB_USERNAME = "iinava"
+const GITHUB_PROFILE_URL = "https://github.com/iinava"
 
 export default function GitHubContributionsWinterTheme() {
   const contributions = getCachedContributions(GITHUB_USERNAME)

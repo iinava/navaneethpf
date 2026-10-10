@@ -28,7 +28,6 @@ import {
 } from "@/features/doc/components/doc-layout"
 import { LLMCopyButtonWithViewOptions } from "@/features/doc/components/doc-page-actions"
 import { DocShareMenu } from "@/features/doc/components/doc-share-menu"
-import { DocSponsors } from "@/features/doc/components/doc-sponsors"
 import {
   findNeighbour,
   getComponentDocs,
@@ -293,8 +292,6 @@ export default async function Page({
         </Prose>
 
         <DocFeedback category="components" slug={doc.slug} />
-
-        <DocSponsors />
 
         <div className="screen-dashed-line-top before:opacity-80">
           <div className="screen-line-top h-4 overflow-x-clip" />
