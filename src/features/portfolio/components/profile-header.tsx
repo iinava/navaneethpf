@@ -1,73 +1,80 @@
-import { SpotlightLogo } from "@/registry/transformed/components/spotlight-logo"
+import { cn } from "@/lib/utils"
 import { USER } from "@/features/portfolio/data/user"
 
-import { FlipSentences } from "./flip-sentences"
-import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
+import { LetsTalkButton } from "./lets-talk-button"
 import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
 
+const TAGLINE = {
+  highlight: "Building scalable products",
+  rest: "with intentional code.",
+}
+
+const pillClassName =
+  "glass-pill inline-flex h-9 items-center rounded-full px-3 text-sm/none font-medium outline-none select-none focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-dashed"
+
 export function ProfileHeader() {
+  const job = USER.jobs[0]
+
   return (
-    <div className="screen-line-bottom grid grid-cols-[auto_1fr] overflow-y-clip border-x border-line">
-      {/* The mark spans the full width so the identity row below reads as part
-          of the same block; its own width is capped so it stays a figure
-          rather than a banner. */}
-      <figure className="relative col-span-2 p-2 sm:p-4">
-        <div className="mx-auto w-full max-w-sm">
-          <SpotlightLogo />
-        </div>
+    <section className="screen-line-bottom border-x border-line px-5 pt-6 pb-10 sm:px-6">
+      <div className="pointer-events-none relative glass-pill size-10 overflow-hidden rounded-[10px] p-[2.5px] sm:size-12 sm:rounded-xl sm:p-[3px]">
+        <img
+          className="size-full rounded-[7.5px] object-cover select-none sm:rounded-[9px]"
+          src={USER.avatar}
+          alt={`${USER.displayName}'s avatar`}
+          fetchPriority="high"
+        />
+      </div>
 
-        {/* w-36 needs ~1088px before the gutter can hold it without clipping,
-            and the mark ignores coarse pointers, so nothing to annotate there. */}
-        <HandwrittenNote
-          className="right-4 bottom-16 hidden w-36 flex-col items-start pointer-fine:xl:flex"
-          aria-hidden
-        >
-          <HandwrittenArrow className="-scale-x-100 -rotate-6" />
-          <span className="ml-1 -rotate-6">
-            follows your cursor
-            <span className="block" />
-            click for a sound
-          </span>
-        </HandwrittenNote>
+      <div className="mt-3 flex items-center gap-1.5 sm:mt-4">
+        <h1 className="text-base font-medium sm:text-[17px]">
+          {USER.displayName}
+        </h1>
 
-        <figcaption className="pointer-events-none absolute right-4 bottom-4 text-sm leading-none tracking-wide text-[color-mix(in_oklab,var(--muted-foreground)_60%,var(--background))] tabular-nums select-none sm:right-6 sm:bottom-6">
-          Fig. 1.
-        </figcaption>
-      </figure>
+        <VerifiedIcon className="size-3.5 text-info select-none" aria-hidden />
 
-      <div className="screen-line-top border-r border-line">
-        <div className="relative mx-0.5 my-0.75 size-30 min-[24rem]:size-32 sm:size-40">
-          <img
-            className="size-full rounded-md object-cover select-none"
-            src={USER.avatar}
-            alt={`${USER.displayName}'s avatar`}
-            fetchPriority="high"
-          />
-          <div
-            className="pointer-events-none absolute inset-0 rounded-md inset-ring-1 inset-ring-foreground/10"
+        {USER.namePronunciationUrl && (
+          <PronounceMyName namePronunciationUrl={USER.namePronunciationUrl} />
+        )}
+      </div>
+
+      <p className="mt-0.5 text-xs text-muted-foreground">
+        {job ? `${job.title} at ${job.company}` : USER.jobTitle}
+      </p>
+
+      <h2 className="mt-10 font-display text-[min(2.3rem,calc(11.9vw-7.86px))]/[1.1] tracking-[-0.3px] text-balance sm:mt-16 sm:text-[clamp(2.3rem,5vw,3rem)]/[1.1]">
+        {/* A blurred copy behind the first line gives it a soft glow. */}
+        <span className="relative inline-block">
+          {TAGLINE.highlight}
+          <span
+            className="pointer-events-none absolute inset-0 -z-1 opacity-60 blur-[20px] select-none"
             aria-hidden
-          />
-        </div>
+          >
+            {TAGLINE.highlight}
+          </span>
+        </span>
+        <br />
+        {TAGLINE.rest}
+      </h2>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        <LetsTalkButton
+          emailB64={USER.emailB64}
+          className={cn(pillClassName, "glass-pill-primary")}
+        >
+          Let&apos;s talk
+        </LetsTalkButton>
+
+        <a
+          href={USER.website}
+          target="_blank"
+          rel="noopener"
+          className={pillClassName}
+        >
+          View GitHub
+        </a>
       </div>
-
-      <div className="flex flex-col justify-end border-t border-line">
-        <div className="flex items-center gap-2 pl-4">
-          <h1 className="-translate-y-px text-[2rem]/none font-medium tracking-tight">
-            {USER.displayName}
-          </h1>
-
-          <VerifiedIcon className="size-4.5 select-none" aria-hidden />
-
-          {USER.namePronunciationUrl && (
-            <PronounceMyName namePronunciationUrl={USER.namePronunciationUrl} />
-          )}
-        </div>
-
-        <FlipSentences className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">
-          {USER.flipSentences}
-        </FlipSentences>
-      </div>
-    </div>
+    </section>
   )
 }

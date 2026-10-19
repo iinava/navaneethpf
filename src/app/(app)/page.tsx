@@ -31,7 +31,7 @@ export default function HomePage() {
     <>
       <JsonLdScript data={getProfilePageJsonLd()} />
 
-      <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))]">
+      <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))] **:data-[slot=panel-title]:font-display **:data-[slot=panel-title]:text-4xl **:data-[slot=panel-title]:font-normal **:data-[slot=panel-title]:tracking-normal">
         <div className="mx-auto md:max-w-3xl">
           <ProfileHeader />
           <Separator />
