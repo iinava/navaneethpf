@@ -21,7 +21,7 @@ const SOCIAL_LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="max-w-screen overflow-x-clip px-2 pb-[calc(--spacing(24)+env(safe-area-inset-bottom,0))]">
+    <footer className="max-w-screen overflow-x-clip px-2">
       {/* Full-width hairlines at the card's edges, matching the page sections.
           They sit on a wrapper because the card clips its overflow. */}
       <div className="screen-line-top screen-line-bottom mx-auto group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
@@ -95,6 +95,13 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
+
+      {/* Clears the fixed bottom fade and nav; the column's side lines run on
+          to the page end. */}
+      <div
+        className="mx-auto h-[calc(--spacing(24)+env(safe-area-inset-bottom,0))] border-x border-line group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl"
+        aria-hidden
+      />
     </footer>
   )
 }
