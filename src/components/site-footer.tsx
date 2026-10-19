@@ -21,11 +21,11 @@ const SOCIAL_LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="max-w-screen overflow-x-clip px-2 pt-2 pb-[calc(--spacing(24)+env(safe-area-inset-bottom,0))]">
+    <footer className="max-w-screen overflow-x-clip px-2 pb-[calc(--spacing(24)+env(safe-area-inset-bottom,0))]">
       {/* Full-width hairlines at the card's edges, matching the page sections.
           They sit on a wrapper because the card clips its overflow. */}
       <div className="screen-line-top screen-line-bottom mx-auto group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
-        <div className="relative isolate overflow-hidden rounded-2xl border border-line">
+        <div className="relative isolate overflow-hidden border-x border-line">
           <img
             src={FOOTER_BG_URL}
             alt=""

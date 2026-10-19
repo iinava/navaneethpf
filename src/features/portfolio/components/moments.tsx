@@ -20,7 +20,7 @@ export function Moments() {
   return (
     <section
       id="moments"
-      className="screen-line-top screen-line-bottom mt-2 rounded-3xl border border-line px-5 py-10 sm:px-8"
+      className="screen-line-bottom border-x border-line px-5 py-10 sm:px-8"
     >
       <h2 className="mx-auto mb-10 w-4/5 text-center font-display text-[28px]/[31px] tracking-[-0.3px] text-balance sm:mb-8 sm:w-3/5 sm:text-4xl/10">
         Moments captured along the way
@@ -46,7 +46,7 @@ export function Moments() {
 }
 
 function MomentStamp({ moment }: { moment: Moment }) {
-  const label = `${moment.city}, ${moment.country}`
+  const label = `${moment.title}: ${moment.subtitle}`
 
   return (
     <figure
@@ -61,13 +61,13 @@ function MomentStamp({ moment }: { moment: Moment }) {
               src={moment.image}
               alt={label}
               loading="lazy"
-              className="size-full object-cover object-[50%_40%] [filter:sepia(.25)_saturate(.82)_contrast(.85)_brightness(1.06)]"
+              className="size-full object-cover object-[50%_40%]"
             />
           </div>
 
           <figcaption className="flex flex-col items-center gap-0.5 pb-0.5">
             <span className="font-display text-[15px]/[18px] tracking-[0.04em] uppercase sm:text-[17px]">
-              {moment.city}
+              {moment.title}
             </span>
             <span
               className={cn(
@@ -75,7 +75,7 @@ function MomentStamp({ moment }: { moment: Moment }) {
                 ACCENT_CLASS[moment.accent]
               )}
             >
-              {moment.country}
+              {moment.subtitle}
             </span>
           </figcaption>
         </div>

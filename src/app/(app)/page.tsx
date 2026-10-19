@@ -33,26 +33,24 @@ export default function HomePage() {
       <JsonLdScript data={getProfilePageJsonLd()} />
 
       {/* `layout-headerless` hides the site header; zero its height so
-          anchor offsets don't leave a gap. Sections stack as one bordered
-          column with rounded ends, joined by single hairlines. */}
+          anchor offsets don't leave a gap. Sections stack as one straight
+          bordered column, joined by single hairlines. */}
       <div
         data-slot="layout-headerless"
         className="pt-2 [--header-height:0px] **:data-[slot=icon-tile]:border-none **:data-[slot=icon-tile]:glass-surface **:data-[slot=icon-tile]:ring-0 **:data-[slot=panel]:scroll-mt-2"
       >
         <div className="mx-auto md:max-w-3xl">
-          <div className="*:last:rounded-b-2xl *:last:border-b">
-            <ProfileHeader />
-            <GitHubContributions />
-            <SocialLinks />
-            <About />
-            <TechStack />
-            <Experiences />
-            <Education />
-            <Topics />
-            <Suspense fallback={<InsightsSkeleton />}>
-              <Insights />
-            </Suspense>
-          </div>
+          <ProfileHeader />
+          <GitHubContributions />
+          <SocialLinks />
+          <About />
+          <TechStack />
+          <Experiences />
+          <Education />
+          <Topics />
+          <Suspense fallback={<InsightsSkeleton />}>
+            <Insights />
+          </Suspense>
 
           <Moments />
         </div>

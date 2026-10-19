@@ -21,7 +21,7 @@ export function ProfileHeader() {
   return (
     <section
       id="profile"
-      className="screen-line-top screen-line-bottom relative scroll-mt-2 rounded-t-2xl border-x border-t border-line px-5 pt-6 pb-10 sm:px-6"
+      className="screen-line-top screen-line-bottom relative scroll-mt-2 border-x border-line px-5 pt-6 pb-10 sm:px-6"
     >
       <HeroThemeSwitcher className="absolute top-6 right-5 sm:hidden" />
 

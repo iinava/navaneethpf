@@ -3,6 +3,7 @@ import { decodeEmail, decodePhoneNumber } from "@/utils/string"
 import sharp from "sharp"
 import VCard from "vcard-creator"
 
+import { absoluteUrl } from "@/lib/utils"
 import { USER } from "@/features/portfolio/data/user"
 
 export const revalidate = false
@@ -19,7 +20,7 @@ export async function GET() {
     .addEmail(decodeEmail(USER.emailB64))
     .addURL(USER.website)
 
-  const photo = await getVCardPhoto(USER.avatar)
+  const photo = await getVCardPhoto(absoluteUrl(USER.avatar))
   if (photo) {
     card.addPhoto(photo.image, photo.mime)
   }

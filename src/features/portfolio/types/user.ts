@@ -30,7 +30,7 @@ export type User = {
   }[]
   /** Rich about section; supports Markdown */
   about: string
-  /** Public URL to avatar image */
+  /** Avatar path under /public (e.g. "/images/avatar.webp"); made absolute where a full URL is needed */
   avatar: string
   /** Open Graph image URL for social sharing */
   ogImage: string

@@ -200,24 +200,8 @@
   mask-composite: intersect;
 }
 
-/* Film look over stamp photos: grain, a warm vignette and a hairline edge. */
+/* Hairline edge around stamp photos. */
 @utility stamp-photo {
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='.33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"),
-      radial-gradient(at 50% 45%, #0000 45%, #28190a73),
-      linear-gradient(160deg, #ffe1aa33, #ffc89618);
-    background-size:
-      160px 160px,
-      100% 100%,
-      100% 100%;
-  }
-
   &::after {
     content: "";
     position: absolute;
