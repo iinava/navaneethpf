@@ -6,6 +6,8 @@ import {
 import { MOMENTS } from "@/features/portfolio/data/moments"
 import type { Moment } from "@/features/portfolio/types/moments"
 
+import { SparkleBackdrop } from "./sparkle-backdrop"
+
 const ACCENT_CLASS: Record<Moment["accent"], string> = {
   red: "text-[oklch(0.52_0.17_25)] dark:text-[oklch(0.72_0.13_25)]",
   blue: "text-[oklch(0.45_0.13_262)] dark:text-[oklch(0.74_0.1_255)]",
@@ -18,21 +20,22 @@ export function Moments() {
   }
 
   return (
-    <section
-      id="moments"
-      className="screen-line-bottom border-x border-line px-5 py-10 sm:px-8"
-    >
-      <h2 className="mx-auto mb-10 w-4/5 text-center font-display text-[28px]/[31px] tracking-[-0.3px] text-balance sm:mb-8 sm:w-3/5 sm:text-4xl/10">
-        Moments captured along the way
-      </h2>
+    <section id="moments" className="screen-line-bottom border-x border-line">
+      <SparkleBackdrop className="[&>canvas]:mask-[radial-gradient(70%_70%_at_50%_55%,black,transparent)] [&>canvas]:opacity-35">
+        <div className="px-5 py-10 sm:px-8">
+          <h2 className="mx-auto mb-10 w-4/5 text-center font-display text-[28px]/[31px] tracking-[-0.3px] text-balance sm:mb-8 sm:w-3/5 sm:text-4xl/10">
+            Moments captured along the way
+          </h2>
 
-      <ul className="grid grid-cols-2 items-end gap-x-2.5 gap-y-4 sm:grid-cols-3 sm:gap-4">
-        {MOMENTS.map((moment) => (
-          <li key={moment.id}>
-            <MomentStamp moment={moment} />
-          </li>
-        ))}
-      </ul>
+          <ul className="grid grid-cols-2 items-end gap-x-2.5 gap-y-4 sm:grid-cols-3 sm:gap-4">
+            {MOMENTS.map((moment) => (
+              <li key={moment.id}>
+                <MomentStamp moment={moment} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </SparkleBackdrop>
 
       <HandwrittenNote
         className="top-32 left-full ml-4 hidden w-20 flex-col items-start pointer-fine:lg:flex"
