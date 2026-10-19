@@ -33,12 +33,6 @@ export const USER: User = {
 - Currently a Team Lead and Software Engineer at [Nexeor Creative Ltd](https://nexeor.com/?utm_source=iinava), building SEO-friendly business websites, CRM dashboards, multi-tenant e-commerce platforms, and my own SaaS products.
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
-  avatarVariants: {
-    lightOff: "https://assets.chanhdai.com/images/avatar-light-off.webp",
-    lightOn: "https://assets.chanhdai.com/images/avatar-light-on.webp",
-    darkOff: "https://assets.chanhdai.com/images/avatar-dark-off.webp",
-    darkOn: "https://assets.chanhdai.com/images/avatar-dark-on.webp",
-  },
   ogImage:
     "/og/simple?title=Navaneeth%20B&description=Software%20Engineer%20building%20scalable%20web%20applications.",
   timeZone: "Asia/Kolkata",

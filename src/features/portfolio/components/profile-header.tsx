@@ -1,8 +1,6 @@
 import { SpotlightLogo } from "@/registry/transformed/components/spotlight-logo"
-import { AvatarLights } from "@/features/portfolio/components/avatar-lights"
 import { USER } from "@/features/portfolio/data/user"
 
-import { AvatarLightsToggle } from "./avatar-lights-toggle"
 import { FlipSentences } from "./flip-sentences"
 import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { PronounceMyName } from "./pronounce-my-name"
@@ -39,12 +37,18 @@ export function ProfileHeader() {
       </figure>
 
       <div className="screen-line-top border-r border-line">
-        <AvatarLightsToggle className="group/avatar-lights-toggle mx-0.5 my-0.75 flex outline-none">
-          <AvatarLights
-            className="ring-border ring-offset-background group-focus-visible/avatar-lights-toggle:ring-1 group-focus-visible/avatar-lights-toggle:ring-offset-2"
-            variants={USER.avatarVariants}
+        <div className="relative mx-0.5 my-0.75 size-30 min-[24rem]:size-32 sm:size-40">
+          <img
+            className="size-full rounded-md object-cover select-none"
+            src={USER.avatar}
+            alt={`${USER.displayName}'s avatar`}
+            fetchPriority="high"
           />
-        </AvatarLightsToggle>
+          <div
+            className="pointer-events-none absolute inset-0 rounded-md inset-ring-1 inset-ring-foreground/10"
+            aria-hidden
+          />
+        </div>
       </div>
 
       <div className="flex flex-col justify-end border-t border-line">
