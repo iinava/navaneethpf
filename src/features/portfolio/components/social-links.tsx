@@ -1,60 +1,38 @@
 import { addQueryParams } from "@/utils/url"
 
 import { UTM_PARAMS } from "@/config/site"
-import { Button } from "@/components/base/ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/base/ui/tooltip"
 import {
   HandwrittenArrow,
   HandwrittenNote,
 } from "@/features/portfolio/components/handwritten-note"
-import { Panel, PanelContent } from "@/features/portfolio/components/panel"
-import { SOCIAL_ICONS } from "@/features/portfolio/components/social-link-icons"
+import { Panel } from "@/features/portfolio/components/panel"
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 
 export function SocialLinks() {
   return (
-    <Panel>
-      <h2 className="sr-only">Social Links</h2>
+    <Panel className="py-5">
+      <h2 className="sr-only">Social links</h2>
 
-      <PanelContent>
-        <ul className="flex flex-wrap gap-2">
-          {SOCIAL_LINKS.map((item) => (
-            <li key={item.name}>
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      className="text-foreground/80 shadow-none [&_svg:not([class*='size-'])]:size-4.5"
-                      variant="outline"
-                      size="icon-sm"
-                      nativeButton={false}
-                      render={
-                        <a
-                          href={addQueryParams(item.href, UTM_PARAMS)}
-                          target="_blank"
-                          rel="noopener"
-                        >
-                          {SOCIAL_ICONS[item.name]}
-                          <span className="sr-only">{item.title}</span>
-                        </a>
-                      }
-                    />
-                  }
-                />
-                <TooltipContent>
-                  {item.title} ({item.handle})
-                </TooltipContent>
-              </Tooltip>
-            </li>
-          ))}
-        </ul>
-      </PanelContent>
+      <ul className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1">
+        {SOCIAL_LINKS.map((item) => (
+          <li key={item.name} className="flex">
+            <a
+              href={addQueryParams(item.href, UTM_PARAMS)}
+              target="_blank"
+              rel="noopener"
+              aria-label={`${item.title} (${item.handle})`}
+              className="rounded-full px-3 py-2 text-[15px]/none font-medium text-muted-foreground transition-colors outline-none hover:bg-foreground/[0.04] hover:text-foreground focus-visible:outline-[1.5px] focus-visible:outline-ring focus-visible:outline-dashed"
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
 
-      <HandwrittenNote className="-top-4 right-full mr-4 hidden w-20 flex-col items-end lg:flex">
+      <HandwrittenNote
+        className="-top-4 right-full mr-4 hidden w-20 flex-col items-end lg:flex"
+        aria-hidden
+      >
         <span className="-rotate-6">follow me</span>
         <HandwrittenArrow className="size-7 translate-x-4 -scale-x-100 -rotate-6" />
       </HandwrittenNote>

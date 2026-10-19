@@ -9,7 +9,10 @@ export function IntroItem({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn("flex items-center gap-4 font-mono text-sm", className)}
+      className={cn(
+        "flex items-center gap-3 text-sm text-muted-foreground *:data-[slot=icon-tile]:size-8 *:data-[slot=icon-tile]:rounded-lg",
+        className
+      )}
       {...props}
     />
   )
@@ -28,7 +31,7 @@ export function IntroItemLink({
 }: React.ComponentProps<"a">) {
   return (
     <a
-      className={cn("link", className)}
+      className={cn("transition-colors hover:text-foreground", className)}
       target="_blank"
       rel="noopener"
       {...props}

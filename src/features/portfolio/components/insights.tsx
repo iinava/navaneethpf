@@ -37,14 +37,8 @@ export async function Insights() {
         </PanelTitle>
       </PanelHeader>
 
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-2 md:grid-cols-4">
-          <div className="border-r border-line" />
-          <div className="border-r border-line max-md:hidden" />
-          <div className="border-r border-line max-md:hidden" />
-        </div>
-
-        <dl className="grid grid-cols-2 md:grid-cols-4">
+      <div>
+        <dl className="grid grid-cols-2 gap-2 md:grid-cols-4">
           <Metric>
             <MetricLabel>
               Unique visitors
@@ -87,7 +81,7 @@ export async function Insights() {
         </dl>
       </div>
 
-      <figure>
+      <figure className="mt-4">
         {data.series.length > 0 ? (
           <LineChart
             className={cn(
@@ -122,7 +116,7 @@ export async function Insights() {
           </div>
         )}
 
-        <figcaption className="screen-line-top px-4 py-3 text-center text-sm text-balance">
+        <figcaption className="text-center text-[13px] text-balance text-muted-foreground">
           <span className="mr-2 tracking-wide text-muted-foreground/80">
             Fig. 3.
           </span>
@@ -149,8 +143,7 @@ function Metric({ className, ...props }: React.ComponentProps<"div">) {
       className={cn(
         // `justify-between` keeps values aligned across a row when a label
         // wraps to two lines in a narrow column.
-        "flex flex-col justify-between gap-2 p-4",
-        "max-sm:nth-[2n+1]:screen-line-bottom sm:nth-[3n+1]:screen-line-bottom",
+        "flex flex-col justify-between gap-2 rounded-xl glass-surface p-4",
         className
       )}
       {...props}

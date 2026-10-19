@@ -1,6 +1,5 @@
 import { ChevronDownIcon } from "lucide-react"
 
-import { Button } from "@/components/base/ui/button"
 import {
   Collapsible,
   CollapsibleContent,
@@ -30,23 +29,24 @@ export function Experiences() {
         </PanelTitle>
       </PanelHeader>
 
-      <div className="pr-2 pl-4">
+      <div>
         <ExperienceList experiences={EXPERIENCES.slice(0, MAX)} />
       </div>
 
       {EXPERIENCES.length > MAX && (
         <Collapsible className="group/collapsible">
-          <CollapsibleContent render={<div className="pr-2 pl-4" />}>
+          <CollapsibleContent
+            render={<div className="mt-5 border-t border-line pt-5" />}
+          >
             <ExperienceList experiences={EXPERIENCES.slice(MAX)} />
           </CollapsibleContent>
 
-          <div className="-mt-px flex items-center justify-center py-4">
+          <div className="mt-6 flex items-center justify-center">
             <CollapsibleTrigger
               render={
-                <Button
-                  className="gap-2 pr-2.5 pl-3 shadow-[inset_0_0_1px] shadow-foreground/20"
-                  variant="secondary"
-                  size="sm"
+                <button
+                  type="button"
+                  className="glass-pill inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-sm/none font-medium outline-none focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-dashed [&_svg]:size-4 [&_svg]:text-muted-foreground"
                 >
                   <span className="hidden group-data-closed/collapsible:block">
                     Show more
@@ -56,8 +56,8 @@ export function Experiences() {
                     Show less
                   </span>
 
-                  <ChevronDownIcon className="group-data-open/collapsible:rotate-180" />
-                </Button>
+                  <ChevronDownIcon className="transition-transform group-data-open/collapsible:rotate-180" />
+                </button>
               }
             />
           </div>

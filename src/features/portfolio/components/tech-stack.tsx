@@ -15,14 +15,9 @@ export function TechStack() {
         </PanelTitle>
       </PanelHeader>
 
-      <div className="relative [--badge-height:--spacing(6)] [--col-left-width:--spacing(48)]">
-        <div
-          className="pointer-events-none absolute inset-y-0 left-(--col-left-width) -z-1 w-px border-r border-dashed border-line max-sm:hidden"
-          aria-hidden
-        />
-
+      <div className="flex flex-col">
         {Object.entries(groupByCategory(TECH_STACK)).map(
-          ([category, items], index) => {
+          ([category, items]) => {
             const categoryId = `${ID}-${category
               .toLowerCase()
               .replace(/[^a-z0-9]+/g, "-")
@@ -31,37 +26,32 @@ export function TechStack() {
             return (
               <div
                 key={category}
-                className="grid items-start gap-y-2 border-b border-line py-4 last:border-none sm:grid-cols-[var(--col-left-width)_1fr]"
+                className="grid items-start gap-x-6 gap-y-3 border-b border-line py-5 first:pt-0 last:border-none last:pb-0 sm:grid-cols-[9rem_1fr]"
               >
-                <div id={categoryId} className="pl-4 text-sm/(--badge-height)">
-                  <span
-                    className="mr-1.5 font-mono text-muted-foreground/80 select-none"
-                    aria-hidden
-                  >
-                    {(index + 1).toString().padStart(2, "0")}
-                  </span>
+                <div
+                  id={categoryId}
+                  className="text-[13px]/8 text-muted-foreground"
+                >
                   {category}
                 </div>
 
                 <ul
                   aria-labelledby={categoryId}
-                  className="flex flex-wrap gap-1.5 px-4"
+                  className="flex flex-wrap gap-2"
                 >
-                  {items.map((item) => {
-                    return (
-                      <li key={item.key} className="flex">
-                        <a
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener"
-                          className="flex h-(--badge-height) items-center justify-center gap-1.25 rounded-full bg-zinc-50/80 px-2 font-mono text-xs text-foreground inset-ring-1 inset-ring-border dark:bg-zinc-900/80 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0 [&_svg]:text-muted-foreground/80"
-                        >
-                          {item.icon}
-                          {item.title}
-                        </a>
-                      </li>
-                    )
-                  })}
+                  {items.map((item) => (
+                    <li key={item.key} className="flex">
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener"
+                        className="glass-pill inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[13px]/none font-medium outline-none focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-dashed [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0 [&_svg]:text-muted-foreground"
+                      >
+                        {item.icon}
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )

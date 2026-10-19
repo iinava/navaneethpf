@@ -40,7 +40,7 @@ export function SiteFooter() {
             aria-hidden
           />
 
-          <div className="flex flex-col items-center px-5 pt-16 pb-10 text-center sm:px-6 sm:pt-20">
+          <div className="flex flex-col items-center px-5 pt-10 pb-6 text-center sm:px-6 sm:pt-12">
             <h2 className="font-display text-[clamp(1.9rem,5vw,2.5rem)]/[1.15] tracking-[-0.3px] text-balance">
               {HEADLINE.map((line) => (
                 <span key={line} className="block">
@@ -49,11 +49,11 @@ export function SiteFooter() {
               ))}
             </h2>
 
-            <p className="mt-5 max-w-sm text-[15px]/relaxed text-balance text-muted-foreground">
+            <p className="mt-3 max-w-sm text-[15px]/relaxed text-balance text-muted-foreground">
               {SUBTEXT}
             </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
               <LetsTalkButton
                 emailB64={USER.emailB64}
                 className={cn(footerPillClassName, "glass-pill-primary")}
@@ -64,14 +64,14 @@ export function SiteFooter() {
             </div>
 
             <p
-              className="mt-12 -rotate-3 font-handwritten text-6xl text-muted-foreground/70 select-none"
+              className="mt-6 -rotate-3 font-handwritten text-5xl text-muted-foreground/70 select-none"
               aria-hidden
             >
               {USER.firstName}
             </p>
           </div>
 
-          <div className="flex items-center justify-between gap-4 border-t border-line px-5 py-4 sm:px-6">
+          <div className="flex items-center justify-between gap-4 border-t border-line px-5 py-3 sm:px-6">
             <ul className="flex items-center gap-2">
               {SOCIAL_LINKS.map(({ title, href, icon }) => (
                 <li key={href} className="flex">
@@ -82,7 +82,7 @@ export function SiteFooter() {
                     aria-label={title}
                     className={cn(
                       footerPillClassName,
-                      "size-10 justify-center px-0 text-muted-foreground hover:text-foreground [&_svg]:size-4"
+                      "size-9 justify-center px-0 text-muted-foreground hover:text-foreground [&_svg]:size-4"
                     )}
                   >
                     {icon}

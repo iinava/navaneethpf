@@ -47,7 +47,7 @@ export function FooterBackToTop() {
       }}
       className={cn(
         footerPillClassName,
-        "size-10 justify-center px-0 text-muted-foreground hover:text-foreground"
+        "size-9 justify-center px-0 text-muted-foreground hover:text-foreground"
       )}
     >
       <ArrowUpIcon className="size-4" />

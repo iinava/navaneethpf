@@ -25,7 +25,7 @@ export function Education() {
         <div
           key={item.id}
           id={`education-${item.id}`}
-          className="screen-line-bottom scroll-mt-14 p-4 pr-2"
+          className="scroll-mt-2 border-b border-line py-5 first:pt-0 last:border-none last:pb-0"
         >
           <EducationItem key={item.id} item={item} />
         </div>

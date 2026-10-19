@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils"
 import { USER } from "@/features/portfolio/data/user"
 
+import { HandwrittenArrow, HandwrittenNote } from "./handwritten-note"
 import { HeroThemeSwitcher } from "./hero-theme-switcher"
 import { LetsTalkButton } from "./lets-talk-button"
 import { PronounceMyName } from "./pronounce-my-name"
@@ -18,7 +19,10 @@ export function ProfileHeader() {
   const job = USER.jobs[0]
 
   return (
-    <section className="screen-line-bottom relative border-x border-line px-5 pt-6 pb-10 sm:px-6">
+    <section
+      id="profile"
+      className="screen-line-top screen-line-bottom relative scroll-mt-2 rounded-t-2xl border-x border-t border-line px-5 pt-6 pb-10 sm:px-6"
+    >
       <HeroThemeSwitcher className="absolute top-6 right-5 sm:hidden" />
 
       <div className="pointer-events-none relative glass-pill size-10 overflow-hidden rounded-[10px] p-[2.5px] sm:size-12 sm:rounded-xl sm:p-[3px]">
@@ -78,6 +82,14 @@ export function ProfileHeader() {
           View GitHub
         </a>
       </div>
+
+      <HandwrittenNote
+        className="right-full bottom-14 mr-4 hidden w-20 flex-col items-end lg:flex"
+        aria-hidden
+      >
+        <span className="-rotate-6">say hi!</span>
+        <HandwrittenArrow className="size-7 translate-x-4 -scale-x-100 -rotate-12" />
+      </HandwrittenNote>
     </section>
   )
 }

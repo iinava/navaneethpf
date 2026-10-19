@@ -1,7 +1,9 @@
 import { getComponentDocs } from "@/features/doc/data/documents"
 import { PROJECTS } from "@/features/portfolio/data/projects"
 
-import { Panel } from "../panel"
+import { HandwrittenArrow, HandwrittenNote } from "../handwritten-note"
+import { Panel, PanelHeader, PanelTitle } from "../panel"
+import { PanelTitleCopy } from "../panel-title-copy"
 import { ComponentRow } from "./component-row"
 import { ProjectRow } from "./project-row"
 import { COMPONENTS_TAB_ICON, PROJECTS_TAB_ICON } from "./tab-icons"
@@ -31,10 +33,13 @@ export function Topics() {
   ]
 
   return (
-    <Panel id={ID} className="px-5 pt-10 pb-12 sm:px-6">
-      <h2 className="mb-8 font-display text-[clamp(1.7rem,5vw,2rem)]/[1.2] tracking-[-0.3px]">
-        <a href={`#${ID}`}>Topics</a>
-      </h2>
+    <Panel id={ID}>
+      <PanelHeader>
+        <PanelTitle>
+          <a href={`#${ID}`}>Topics</a>
+          <PanelTitleCopy id={ID} />
+        </PanelTitle>
+      </PanelHeader>
 
       <TopicTabs
         tabs={[
@@ -47,6 +52,14 @@ export function Topics() {
         ]}
         items={items}
       />
+
+      <HandwrittenNote
+        className="top-44 left-full ml-4 hidden w-28 flex-col items-start lg:flex"
+        aria-hidden
+      >
+        <span className="rotate-3">click to expand</span>
+        <HandwrittenArrow className="mt-1 -translate-x-1 rotate-6" />
+      </HandwrittenNote>
     </Panel>
   )
 }

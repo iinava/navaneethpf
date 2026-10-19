@@ -15,7 +15,7 @@ export function TOC() {
       <TOCMinimap
         className="transition-opacity duration-200 data-[active-anchor=components]:opacity-30"
         items={[
-          { title: "Hello", url: "#hello", depth: 2 },
+          { title: "About", url: "#about", depth: 2 },
           { title: "Components", url: "#components", depth: 2 },
           { title: "Blog", url: "#blog", depth: 2 },
           { title: "Experience", url: "#experience", depth: 2 },

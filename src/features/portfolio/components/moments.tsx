@@ -1,4 +1,8 @@
 import { cn } from "@/lib/utils"
+import {
+  HandwrittenArrow,
+  HandwrittenNote,
+} from "@/features/portfolio/components/handwritten-note"
 import { MOMENTS } from "@/features/portfolio/data/moments"
 import type { Moment } from "@/features/portfolio/types/moments"
 
@@ -29,6 +33,14 @@ export function Moments() {
           </li>
         ))}
       </ul>
+
+      <HandwrittenNote
+        className="top-32 left-full ml-4 hidden w-20 flex-col items-start pointer-fine:lg:flex"
+        aria-hidden
+      >
+        <span className="rotate-3">hover me</span>
+        <HandwrittenArrow className="mt-1 -translate-x-1 rotate-6" />
+      </HandwrittenNote>
     </section>
   )
 }
