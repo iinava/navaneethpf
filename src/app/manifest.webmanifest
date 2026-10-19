@@ -4,12 +4,6 @@
   "description": "Software Engineer building scalable web applications.",
   "icons": [
     {
-      "src": "/icon-vector.svg",
-      "type": "image/svg+xml",
-      "sizes": "any",
-      "purpose": "any"
-    },
-    {
       "src": "/icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192",

@@ -82,19 +82,13 @@ export const metadata: Metadata = {
     icon: [
       {
         url: "/favicon-32x32.png",
+        type: "image/png",
         sizes: "32x32",
       },
       {
-        url: "/favicon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/favicon-dark.svg",
-        sizes: "any",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: dark)",
+        url: "/icon-192x192.png",
+        type: "image/png",
+        sizes: "192x192",
       },
     ],
     apple: {
