@@ -15,9 +15,9 @@ import {
 } from "@/features/portfolio/components/insights"
 import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
-import { Projects } from "@/features/portfolio/components/projects"
 import { SocialLinks } from "@/features/portfolio/components/social-links"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
+import { Topics } from "@/features/portfolio/components/topics"
 import { USER } from "@/features/portfolio/data/user"
 
 export const metadata: Metadata = {
@@ -53,7 +53,7 @@ export default function HomePage() {
           <Education />
           <Separator />
 
-          <Projects />
+          <Topics />
           <Separator />
 
           <Suspense fallback={<InsightsSkeleton />}>

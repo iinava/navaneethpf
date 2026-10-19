@@ -1,176 +1,100 @@
-import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { DmcaIcon, GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
-import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons"
+import { LetsTalkButton } from "@/features/portfolio/components/lets-talk-button"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 import { USER } from "@/features/portfolio/data/user"
 
+import { FooterBackToTop, FooterEmailPill } from "./site-footer-actions"
+import { footerPillClassName } from "./site-footer-styles"
+
+const HEADLINE = ["Clean code makes", "great products possible."]
+const SUBTEXT =
+  "I partner with teams to turn complex ideas into scalable, reliable web apps, and ship them with confidence."
+
+const FOOTER_BG_URL = "https://www.diali.ai/images/footer-bg-dark.webp"
+
+const SOCIAL_LINKS = [
+  { ...SOCIAL.github, icon: <GitHubIcon /> },
+  { ...SOCIAL.linkedin, icon: <LinkedInIcon /> },
+  { ...SOCIAL.x, icon: <XIcon /> },
+]
+
 export function SiteFooter() {
-  const xLink = SOCIAL.x
-  const githubLink = SOCIAL.github
-  const linkedinLink = SOCIAL.linkedin
-
   return (
-    <footer className="max-w-screen overflow-x-clip px-2">
-      <div className="mx-auto border-x border-line group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
-        <div className="screen-line-top screen-line-bottom">
-          <div className="stripe-divider h-12" />
-        </div>
+    <footer className="max-w-screen overflow-x-clip px-2 pt-2 pb-[calc(--spacing(24)+env(safe-area-inset-bottom,0))]">
+      {/* Full-width hairlines at the card's edges, matching the page sections.
+          They sit on a wrapper because the card clips its overflow. */}
+      <div className="screen-line-top screen-line-bottom mx-auto group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
+        <div className="relative isolate overflow-hidden rounded-2xl border border-line">
+          <img
+            src={FOOTER_BG_URL}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 -z-2 size-full object-cover select-none"
+            aria-hidden
+          />
+          {/* Darkens the image so the copy stays readable; heavier in light mode
+            where the text is dark. */}
+          <div
+            className="absolute inset-0 -z-1 bg-background/85 dark:bg-background/55"
+            aria-hidden
+          />
 
-        <dl className="flex flex-col gap-4 py-8 font-mono [&_dd]:text-sm [&_dt]:text-right [&_dt]:text-sm [&_dt]:text-muted-foreground [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2">
-          <Item>
-            <dt>Crafted by</dt>
-            <dd>
-              <a
-                className="link-underline"
-                href={xLink.href}
-                target="_blank"
-                rel="noopener"
+          <div className="flex flex-col items-center px-5 pt-16 pb-10 text-center sm:px-6 sm:pt-20">
+            <h2 className="font-display text-[clamp(1.9rem,5vw,2.5rem)]/[1.15] tracking-[-0.3px] text-balance">
+              {HEADLINE.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </h2>
+
+            <p className="mt-5 max-w-sm text-[15px]/relaxed text-balance text-muted-foreground">
+              {SUBTEXT}
+            </p>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-2">
+              <LetsTalkButton
+                emailB64={USER.emailB64}
+                className={cn(footerPillClassName, "glass-pill-primary")}
               >
-                {xLink.handle}
-              </a>
-            </dd>
-          </Item>
+                Contact me
+              </LetsTalkButton>
+              <FooterEmailPill emailB64={USER.emailB64} />
+            </div>
 
-          <Item>
-            <dt>Inspired by</dt>
-            <dd>
-              <ul>
-                <li>Tailwind CSS</li>
-                <li>shadcn/ui</li>
-                <li>Vercel</li>
-                <li>Evil Charts</li>
-                <li>Devouring Details</li>
-                <li>Skiper UI</li>
-                <li>Making Software</li>
-              </ul>
-            </dd>
-          </Item>
+            <p
+              className="mt-12 -rotate-3 font-handwritten text-6xl text-muted-foreground/70 select-none"
+              aria-hidden
+            >
+              {USER.firstName}
+            </p>
+          </div>
 
-          <Item>
-            <dt>Deployed on</dt>
-            <dd>Vercel</dd>
-          </Item>
-
-          <Item>
-            <dt>Analytics</dt>
-            <dd>
-              <ul>
-                <li>
+          <div className="flex items-center justify-between gap-4 border-t border-line px-5 py-4 sm:px-6">
+            <ul className="flex items-center gap-2">
+              {SOCIAL_LINKS.map(({ title, href, icon }) => (
+                <li key={href} className="flex">
                   <a
-                    className="link-underline"
-                    href="https://openpanel.dev?utm_source=iinava.dev.co&utm_medium=referral&utm_campaign=footer"
+                    href={href}
                     target="_blank"
                     rel="noopener"
+                    aria-label={title}
+                    className={cn(
+                      footerPillClassName,
+                      "size-10 justify-center px-0 text-muted-foreground hover:text-foreground [&_svg]:size-4"
+                    )}
                   >
-                    OpenPanel
+                    {icon}
                   </a>
                 </li>
-                <li>Google Analytics</li>
-              </ul>
-            </dd>
-          </Item>
+              ))}
+            </ul>
 
-          <Item>
-            <dt>Source code</dt>
-            <dd>
-              <a
-                className="link-underline"
-                href={SOURCE_CODE_GITHUB_URL}
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub
-              </a>
-            </dd>
-          </Item>
-
-          <Item>
-            <dt>License</dt>
-            <dd>
-              <a
-                className="link-underline"
-                href={LICENSE.url}
-                target="_blank"
-                rel="noopener"
-              >
-                {LICENSE.name}
-              </a>
-            </dd>
-          </Item>
-        </dl>
-
-        <div className="screen-line-top screen-line-bottom flex w-full before:z-1 after:z-1">
-          <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href={xLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="X Profile"
-            >
-              <XIcon className="size-4" />
-            </a>
-
-            <Separator />
-
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href={githubLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub Profile"
-            >
-              <GitHubIcon className="size-4" />
-            </a>
-
-            <Separator />
-
-            <a
-              className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href={linkedinLink.href}
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn Profile"
-            >
-              <LinkedInIcon className="size-4" />
-            </a>
-
-            <Separator />
-
-            <a
-              className="flex text-muted-foreground transition-[color] hover:text-foreground"
-              href={
-                process.env.NEXT_PUBLIC_DMCA_URL ||
-                "https://www.dmca.com/ProtectionPro.aspx"
-              }
-              target="_blank"
-              rel="noopener"
-              aria-label="DMCA.com Protection Status"
-            >
-              <DmcaIcon className="h-4.5 w-auto" />
-            </a>
+            <FooterBackToTop />
           </div>
         </div>
-
-        {/* <div className="*:absolute *:z-2 *:flex *:size-2 *:border *:border-line *:bg-background">
-          <div className="bottom-[-3.5px] left-[-4.5px]" />
-          <div className="right-[-4.5px] bottom-[-3.5px]" />
-        </div> */}
       </div>
-
-      <SiteFooterInteractiveLogotype name={USER.displayName} />
-
-      <div className="h-(--fade-bottom-height)" />
-      <div className="pb-[env(safe-area-inset-bottom,0)]" />
     </footer>
   )
-}
-
-function Separator({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("flex h-11 w-px bg-line", className)} {...props} />
-}
-
-function Item({ className, ...props }: React.ComponentProps<"div">) {
-  return <div className={cn("grid grid-cols-2 gap-4", className)} {...props} />
 }

@@ -19,7 +19,7 @@ export function TOC() {
           { title: "Components", url: "#components", depth: 2 },
           { title: "Blog", url: "#blog", depth: 2 },
           { title: "Experience", url: "#experience", depth: 2 },
-          { title: "Projects", url: "#projects", depth: 2 },
+          { title: "Topics", url: "#topics", depth: 2 },
           { title: "Bookmarks", url: "#bookmarks", depth: 2 },
           { title: "Insights", url: "#insights", depth: 2 },
         ]}

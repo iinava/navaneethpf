@@ -18,6 +18,8 @@ export type Project = {
   skills: string[]
   /** Optional rich description; Markdown and line breaks supported. */
   description?: string
+  /** Cover image URL (absolute or path under /public) shown as the row thumbnail. */
+  thumbnail?: string
   /** Logo image URL (absolute or path under /public). Takes precedence over `icon`. */
   logo?: string
   /** Inline SVG icon, framed in a tile. Used only when `logo` is unset. */
