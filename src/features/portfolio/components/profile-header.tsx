@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils"
 import { USER } from "@/features/portfolio/data/user"
 
+import { HeroThemeSwitcher } from "./hero-theme-switcher"
 import { LetsTalkButton } from "./lets-talk-button"
 import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
@@ -17,7 +18,9 @@ export function ProfileHeader() {
   const job = USER.jobs[0]
 
   return (
-    <section className="screen-line-bottom border-x border-line px-5 pt-6 pb-10 sm:px-6">
+    <section className="screen-line-bottom relative border-x border-line px-5 pt-6 pb-10 sm:px-6">
+      <HeroThemeSwitcher className="absolute top-6 right-5 sm:hidden" />
+
       <div className="pointer-events-none relative glass-pill size-10 overflow-hidden rounded-[10px] p-[2.5px] sm:size-12 sm:rounded-xl sm:p-[3px]">
         <img
           className="size-full rounded-[7.5px] object-cover select-none sm:rounded-[9px]"

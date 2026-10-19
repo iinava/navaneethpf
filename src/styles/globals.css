@@ -116,6 +116,17 @@
   }
 }
 
+/* Static glass (no hover/press feedback), for containers like segmented controls. */
+@utility glass-surface {
+  background-color: var(--glass-tint, var(--tab-bg));
+  backdrop-filter: blur(16px) saturate(180%);
+  box-shadow:
+    inset 0 0 0 0.5px var(--glass-edge),
+    inset 1px 1.5px 0 var(--glass-spec),
+    inset -1px -1px 0 var(--glass-spec-soft),
+    inset 0 -10px 20px -12px var(--glass-depth);
+}
+
 /* Glass pill: layered inset highlights read as a lit edge on any surface. */
 @utility glass-pill {
   isolation: isolate;
@@ -162,6 +173,58 @@
   }
   &[data-level="4"] {
     --cell-color: var(--contribution-4);
+  }
+}
+
+/* Postage stamp: circular holes punched along every edge. Each mask layer
+   cuts one edge's holes; intersecting them keeps the paper between. */
+@utility stamp-frame {
+  --hole: 3.5px;
+  --pitch: 11px;
+  background-color: var(--stamp-paper);
+  mask-image:
+    radial-gradient(circle var(--hole) at 50% 0, #0000 96%, #000),
+    radial-gradient(circle var(--hole) at 50% 100%, #0000 96%, #000),
+    radial-gradient(circle var(--hole) at 0 50%, #0000 96%, #000),
+    radial-gradient(circle var(--hole) at 100% 50%, #0000 96%, #000);
+  mask-size:
+    var(--pitch) 100%,
+    var(--pitch) 100%,
+    100% var(--pitch),
+    100% var(--pitch);
+  mask-repeat:
+    round no-repeat,
+    round no-repeat,
+    no-repeat round,
+    no-repeat round;
+  mask-composite: intersect;
+}
+
+/* Film look over stamp photos: grain, a warm vignette and a hairline edge. */
+@utility stamp-photo {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='.33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"),
+      radial-gradient(at 50% 45%, #0000 45%, #28190a73),
+      linear-gradient(160deg, #ffe1aa33, #ffc89618);
+    background-size:
+      160px 160px,
+      100% 100%,
+      100% 100%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 1px var(--stamp-photo-edge);
   }
 }
 
@@ -443,6 +506,10 @@
     0 40px 24px #0000000f, 0 23px 14px #00000014, 0 10px 10px #0000001f,
     0 3px 6px #00000030;
 
+  /* Moments stamps */
+  --stamp-paper: oklch(0.985 0 0);
+  --stamp-photo-edge: #00000014;
+
   /* Contribution graph */
   --contribution-0: oklch(0.9242 0.005 264.54);
   --contribution-1: oklch(0.83 0.11 162);
@@ -458,6 +525,9 @@
 }
 
 .dark {
+  --stamp-paper: oklch(0.2 0 0);
+  --stamp-photo-edge: #ffffff0f;
+
   --contribution-0: oklch(0.19 0 0);
   --contribution-1: oklch(0.32 0.09 162);
   --contribution-2: oklch(0.44 0.14 163);

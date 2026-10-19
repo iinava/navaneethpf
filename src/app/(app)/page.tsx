@@ -13,6 +13,7 @@ import {
   Insights,
   InsightsSkeleton,
 } from "@/features/portfolio/components/insights"
+import { Moments } from "@/features/portfolio/components/moments"
 import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { SocialLinks } from "@/features/portfolio/components/social-links"
@@ -31,7 +32,12 @@ export default function HomePage() {
     <>
       <JsonLdScript data={getProfilePageJsonLd()} />
 
-      <div className="[--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))] **:data-[slot=panel-title]:font-display **:data-[slot=panel-title]:text-4xl **:data-[slot=panel-title]:font-normal **:data-[slot=panel-title]:tracking-normal">
+      {/* `layout-headerless` hides the site header; zero its height so
+          anchor offsets don't leave a gap. */}
+      <div
+        data-slot="layout-headerless"
+        className="[--header-height:0px] [--separator-height:--spacing(8)] **:data-[slot=panel]:scroll-mt-[calc(var(--header-height)+var(--separator-height))] **:data-[slot=panel-title]:font-display **:data-[slot=panel-title]:text-4xl **:data-[slot=panel-title]:font-normal **:data-[slot=panel-title]:tracking-normal"
+      >
         <div className="mx-auto md:max-w-3xl">
           <ProfileHeader />
           <Separator />
@@ -60,6 +66,8 @@ export default function HomePage() {
             <Insights />
           </Suspense>
           <Separator />
+
+          <Moments />
         </div>
       </div>
     </>
