@@ -24,23 +24,6 @@ export const SOCIAL = {
     href: "https://linkedin.com/in/inavaneeth",
     sameAs: true,
   },
-  dailydotdev: {
-    title: "daily.dev",
-    handle: "@iinava",
-    href: "https://app.daily.dev/iinava",
-    sameAs: true,
-  },
-  discord: {
-    title: "Discord",
-    handle: "iinava",
-    href: "https://discord.com/users/1186630645443739651",
-  },
-  youtube: {
-    title: "YouTube",
-    handle: "@iinava",
-    href: "https://www.youtube.com/@iinava",
-    sameAs: true,
-  },
 } satisfies Record<string, SocialProfile>
 
 export type SocialName = keyof typeof SOCIAL
