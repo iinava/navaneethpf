@@ -4,6 +4,22 @@ import type { Project } from "../types/projects"
 
 export const PROJECTS: Project[] = [
   {
+    id: "handly-furniture",
+    title: "Handly Furnitures (Landing Page)",
+    period: {
+      start: "10.2026",
+      end: "10.2026",
+    },
+    link: "https://www.handlyfurniture.com/",
+    skills: ["Branding", "Landing Page", "Web Design", "Responsive Design"],
+    description: `A branded landing page for Handly, a bespoke furniture maker serving B2B wholesale partners.
+- Showcased the furniture collection across chairs, tables, sofas, and storage.
+- Told the brand story through its heritage craftsmanship and history.
+- Featured the store location and contact paths for wholesale inquiries.
+- Designed a responsive experience that carries the brand across desktop and mobile.`,
+    thumbnail: "/images/projects/handly-furniture.webp",
+  },
+  {
     id: "realesto",
     title: "Realesto",
     period: {
@@ -17,7 +33,6 @@ export const PROJECTS: Project[] = [
 - Built secure REST APIs for user authentication, property listings, messaging, and pricing details.
 - Designed responsive UI components in React for seamless property discovery and inquiry experience.`,
     icon: <MessageCircleIcon />,
-    isExpanded: true,
   },
   {
     id: "8bit-cn",
