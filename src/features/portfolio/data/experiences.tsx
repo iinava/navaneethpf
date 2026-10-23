@@ -1,4 +1,4 @@
-import { CodeXmlIcon } from "lucide-react"
+import { BriefcaseBusinessIcon, CodeXmlIcon } from "lucide-react"
 
 import type { Experience } from "@/features/portfolio/types/experiences"
 
@@ -46,9 +46,45 @@ Key Projects:
           "Zod",
           "JWT",
         ],
-        isExpanded: true,
       },
     ],
     isCurrentEmployer: true,
+  },
+  {
+    id: "freelance",
+    companyName: "Freelance",
+    companyIcon: <BriefcaseBusinessIcon />,
+    location: "Kozhikode, Kerala",
+    positions: [
+      {
+        id: "1",
+        title: "Founder & Developer — SaaS ERP / CRM",
+        employmentPeriod: {
+          start: "2026",
+        },
+        employmentType: "Freelance",
+        icon: <BriefcaseBusinessIcon />,
+        description: `- Build and run custom ERP and CRM software for local businesses on a SaaS model, from requirements and development through deployment, support, and monthly subscription billing.
+- Built with Next.js and self-hosted on our own VPS, keeping infrastructure costs low and deployments fully under our control.
+- Automated phone call reminders for missed payments and upcoming appointments, reducing manual follow-ups for clients.
+- Automated paperwork generation for invoices, receipts, and business documents.
+- Own the full client relationship: onboarding, feature roadmaps, ongoing maintenance, and recurring revenue collection.
+
+Clients:
+- Urbanholic and Adonis (salons): CRM software for appointments, customers, and daily operations.
+- Lakshadweep Hostels: hostel management system covering rooms, residents, and fee tracking.
+- Mesco Furnitures (Kozhikode): ERP software for a well-known furniture retailer, covering inventory, sales, and operations.`,
+        skills: [
+          "Next.js",
+          "VPS",
+          "SaaS",
+          "ERP",
+          "CRM",
+          "Automated Calls",
+          "Document Generation",
+          "Subscription Billing",
+        ],
+      },
+    ],
   },
 ]

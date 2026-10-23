@@ -24,12 +24,12 @@ const SECTIONS = [
 ]
 
 const itemClassName =
-  "group/dock-item relative flex size-10 items-center justify-center rounded-full text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:outline-[1.5px] focus-visible:outline-ring focus-visible:outline-dashed sm:size-11 [&_svg]:size-4.5 sm:[&_svg]:size-5"
+  "group/dock-item relative flex size-9 items-center justify-center rounded-full text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:outline-[1.5px] focus-visible:outline-ring focus-visible:outline-dashed sm:size-10 [&_svg]:size-4 sm:[&_svg]:size-4.5"
 
-// Mostly see-through: a thin tint of the page, a strong blur, and the same lit
-// edges as the glass pills.
+// A solid enough tint to stay legible over busy content, a strong blur, and
+// the same lit edges as the glass pills.
 const dockGlassClassName =
-  "bg-background/35 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_0_0_0.5px_var(--glass-edge),inset_1px_1.5px_0_var(--glass-spec),inset_-1px_-1px_0_var(--glass-spec-soft),inset_0_-10px_20px_-12px_var(--glass-depth),0_8px_32px_-8px_rgb(0_0_0/0.35)]"
+  "bg-background/75 ring-1 ring-foreground/10 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_0_0_0.5px_var(--glass-edge),inset_1px_1.5px_0_var(--glass-spec),inset_-1px_-1px_0_var(--glass-spec-soft),inset_0_-10px_20px_-12px_var(--glass-depth),0_10px_36px_-8px_rgb(0_0_0/0.5)]"
 
 export function SectionDock() {
   const active = useActiveSection(SECTIONS.map((section) => section.id))
@@ -37,11 +37,11 @@ export function SectionDock() {
   return (
     <nav
       aria-label="Sections"
-      className="fixed bottom-[calc(--spacing(3)+env(safe-area-inset-bottom,0))] left-1/2 z-50 flex -translate-x-1/2 items-center sm:bottom-[calc(--spacing(4)+env(safe-area-inset-bottom,0))]"
+      className="fixed bottom-[calc(--spacing(6)+env(safe-area-inset-bottom,0))] left-1/2 z-50 flex -translate-x-1/2 items-center sm:bottom-[calc(--spacing(8)+env(safe-area-inset-bottom,0))]"
     >
       <ul
         className={cn(
-          "flex items-center gap-0.5 rounded-full p-1 sm:gap-1",
+          "flex items-center gap-0.5 rounded-full p-0.5 sm:gap-1",
           dockGlassClassName
         )}
       >
@@ -106,7 +106,7 @@ function DockThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
         itemClassName,
-        "-ml-1 size-11 sm:size-13",
+        "-ml-1 size-10 sm:size-11",
         dockGlassClassName
       )}
     >
